@@ -55,7 +55,11 @@
                                         <td>{{product.productCode}}</td>
                                         <td>{{product.releaseDate}}</td>
                                         <td>{{product.price | currency:'DOP$ ':true:'1.2-2' | uppercase}}</td>
-                                        <td>{{product.starRating}}</td>
+                                        <td>
+                                            <ms-starts-rating 
+                                                [startsRating]='product.starRating'>
+                                            </ms-starts-rating>
+                                        </td>
                                     </tr>
                                 </tbody>
                         </table>
