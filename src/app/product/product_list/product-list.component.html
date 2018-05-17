@@ -57,7 +57,8 @@
                                         <td>{{product.price | currency:'DOP$ ':true:'1.2-2' | uppercase}}</td>
                                         <td>
                                             <ms-starts-rating 
-                                                [startsRating]='product.starRating'>
+                                                [startsRating]='product.starRating'
+                                                (notifier)='onNotify($event)'>
                                             </ms-starts-rating>
                                         </td>
                                     </tr>
