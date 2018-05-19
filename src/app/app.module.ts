@@ -6,6 +6,7 @@ import { AppComponent } from './app.component';
 import { ProductListComponent } from './product/product_list/product-list.component';
 import { RatingStartsComponent } from './shared/starts.component';
 import { ProductService } from './services/products.service';
+import { HttpClientModule } from '@angular/common/http';
   
 @NgModule({
   declarations: [
@@ -14,6 +15,7 @@ import { ProductService } from './services/products.service';
     RatingStartsComponent
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     FormsModule
   ],

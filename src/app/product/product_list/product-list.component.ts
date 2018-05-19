@@ -10,12 +10,16 @@ import { ProductService } from "../../services/products.service";
 
 export class ProductListComponent implements OnInit{
   
-    constructor(private productService:ProductService) {
+    constructor(private _productService:ProductService) {
           
     }
 
     ngOnInit(): void {
-        this.products = this.productService.getAll();
+        this._productService.getAll()
+         .subscribe(products => {
+            this.products = products;
+            this.viewProducts = products;
+         });
         this.viewProducts = this.products;
     }
 
@@ -23,20 +27,20 @@ export class ProductListComponent implements OnInit{
     pageTitle:string = "Products";
     products: IProduct[];
     viewProducts:IProduct[]=this.products
-    
+    _filterBy:string;    
+   
     onNotify(message:string):void{
         this.pageTitle = message;
     }
     
-    imagesVisibilityButtonText () {
-        this.showImages ? 'Hide images' : 'Show images';
+    imagesVisibilityButtonText ():string {
+        return  this.showImages ? 'Hide images' : 'Show images';
     }    
     
-    toggleImagesVisibility=()=>{
+    toggleImagesVisibility():void{
         this.showImages = !this.showImages;
     }
 
-    _filterBy:string;    
     get filterBy() : string {
         return this._filterBy;
     }  
@@ -45,7 +49,7 @@ export class ProductListComponent implements OnInit{
         this.viewProducts = this._filterBy ? this.filterProducts(this._filterBy) : this.products;
     }      
     
-    filterProducts=(filter:string):IProduct[]=> {
+    filterProducts(filter:string):IProduct[] {
         filter = filter.toLowerCase();
         return this.products.filter(product =>{
             return product.productName.toLocaleLowerCase().indexOf(filter) !== -1;
