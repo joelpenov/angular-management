@@ -3,7 +3,7 @@ import { IProduct } from "../models/product";
 import { ProductService } from "../../services/products.service";
 
 @Component({
-    selector: 'ms-products',
+    selector: 'sm-products',
     templateUrl:'./product-list.component.html',
     styleUrls:['./product-list.component.css']
 })
@@ -14,21 +14,20 @@ export class ProductListComponent implements OnInit{
           
     }
 
-    ngOnInit(): void {
-        this._productService.getAll()
-         .subscribe(products => {
-            this.products = products;
-            this.viewProducts = products;
-         });
-        this.viewProducts = this.products;
-    }
-
     private showImages:boolean=false;
     pageTitle:string = "Products";
     products: IProduct[];
     viewProducts:IProduct[]=this.products
     _filterBy:string;    
    
+    ngOnInit(): void {
+        this._productService.getAll()
+         .subscribe(products => {
+            this.products = products;
+            this.viewProducts = products;
+         });
+    }
+
     onNotify(message:string):void{
         this.pageTitle = message;
     }

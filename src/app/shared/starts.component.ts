@@ -1,7 +1,7 @@
 import { Component, OnChanges, SimpleChanges, Input, Output, EventEmitter } from "@angular/core";
 
 @Component({
-    selector:'ms-starts-rating',
+    selector:'sm-starts-rating',
     templateUrl: './starts.component.html',
     styleUrls:['./starts.component.css']
 })

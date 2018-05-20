@@ -56,10 +56,10 @@
                                         <td>{{product.releaseDate}}</td>
                                         <td>{{product.price | currency:'DOP$ ':true:'1.2-2' | uppercase}}</td>
                                         <td>
-                                            <ms-starts-rating 
+                                            <sm-starts-rating 
                                                 [startsRating]='product.starRating'
                                                 (notifier)='onNotify($event)'>
-                                            </ms-starts-rating>
+                                            </sm-starts-rating>
                                         </td>
                                     </tr>
                                 </tbody>
@@ -70,3 +70,4 @@
         </div>
         </div>
     </div>
+</div>
