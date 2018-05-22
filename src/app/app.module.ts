@@ -12,10 +12,11 @@ import { RouterModule } from '@angular/router';
 import { ProductService } from './services/products.service';
 import { NotFoundComponent } from './shared/error-codes/404.component';
 import { NavBarComponent } from './navbar/navbar.component';
+import { ProductDetailComponent } from './product/product_detail/product-detail.component';
 
 const routes = [
   {path: 'products', component: ProductListComponent},
-  {path: 'products/:id', component: ProductListComponent},
+  {path: 'products/:id', component: ProductDetailComponent},
   {path: 'welcome', component: WelcomeComponent},
   {path: '', component: WelcomeComponent, pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}
@@ -28,7 +29,8 @@ const routes = [
     RatingStartsComponent,
     WelcomeComponent,
     NotFoundComponent, 
-    NavBarComponent
+    NavBarComponent,
+    ProductDetailComponent
   ],
   imports: [
     HttpClientModule,

@@ -8,6 +8,7 @@ import { catchError, tap} from 'rxjs/operators';
 @Injectable()
 export class ProductService{
 
+    private emptyProduct: IProduct;
     constructor(private _http: HttpClient) {
         
     }
@@ -16,6 +17,13 @@ export class ProductService{
         return this._http.get<IProduct[]>(ServiceUrl.GetAllProducts)
         .pipe(
             catchError(this.handleError('getAll', []))
+          );
+      }
+
+      getById (id:number): Observable<IProduct> {
+        return this._http.get<IProduct>(`${ServiceUrl.GetAllProducts}/${id}`)
+        .pipe(
+            catchError(this.handleError('getById',this.emptyProduct))
           );
       }
 

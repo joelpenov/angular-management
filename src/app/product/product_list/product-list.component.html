@@ -51,7 +51,7 @@
                                     <tr *ngFor="let product of viewProducts; let i = index">
                                         <td>{{i + 1}}</td>                                        
                                         <td *ngIf='showImages'><img width="100" height="100" [title]='product.productName' [src]='product.imageUrl' /></td>
-                                        <td>{{product.productName}}</td>
+                                        <td><a [routerLink]="['/products/', product.productId]">{{product.productName}}</a></td>
                                         <td>{{product.productCode}}</td>
                                         <td>{{product.releaseDate}}</td>
                                         <td>{{product.price | currency:'DOP$ ':true:'1.2-2' | uppercase}}</td>

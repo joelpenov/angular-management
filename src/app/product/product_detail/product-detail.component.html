@@ -1,0 +1,31 @@
+<div class="jumbotron">
+<div class="row" *ngIf="product">
+    <div class="col-md-4 col-xs-12 col-sm-6 col-lg-4">
+        <img [src]="product.imageUrl" [alt]="product.productName" class="img">
+    </div>
+    <div class="col-md-8 col-xs-12 col-sm-6 col-lg-8">
+        <div class="container" style="border-bottom:1px solid black">
+            <h2>{{product.productName}}</h2>
+        </div>
+            <hr>
+        <ul class="container details">
+            <li><p><span class="glyphicon glyphicon-earphone one" style="width:50px;"></span>{{product.productCode}}</p></li>
+            <li><p><span class="glyphicon glyphicon-envelope one" style="width:50px;"></span>{{product.releaseDate}}</p></li>
+            <li><p><span class="glyphicon glyphicon-map-marker one" style="width:50px;"></span>{{product.price | currency:'DOP$ ':true:'1.2-2' | uppercase}}</p></li>
+            <li><p><span class="glyphicon glyphicon-new-window one" style="width:50px;"></span>
+                <sm-starts-rating 
+                [startsRating]='product.starRating'>
+            </sm-starts-rating></p></li>
+        </ul>
+
+    </div>
+    <div class="row">
+        <div class="col-lg-1 pull-right">
+            <a [routerLink]="['/products']">
+            <button>
+                <<Back
+            </button>
+        </a>
+        </div>
+    </div>
+</div>
