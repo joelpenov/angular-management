@@ -13,10 +13,11 @@ import { ProductService } from './services/products.service';
 import { NotFoundComponent } from './shared/error-codes/404.component';
 import { NavBarComponent } from './navbar/navbar.component';
 import { ProductDetailComponent } from './product/product_detail/product-detail.component';
+import { ProductGuardServiceService } from './services/product-guard.service.service';
 
 const routes = [
   {path: 'products', component: ProductListComponent},
-  {path: 'products/:id', component: ProductDetailComponent},
+  {path: 'products/:id', component: ProductDetailComponent, canActivate: [ProductGuardServiceService]},
   {path: 'welcome', component: WelcomeComponent},
   {path: '', component: WelcomeComponent, pathMatch: 'full'},
   {path: '**', component: NotFoundComponent}
@@ -39,7 +40,8 @@ const routes = [
     RouterModule.forRoot(routes)
   ],
   providers: [
-    ProductService
+    ProductService,
+    ProductGuardServiceService
   ],
   bootstrap: [
     AppComponent

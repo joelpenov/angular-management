@@ -7,7 +7,6 @@ import { SystemManagementConstants } from "../shared/systemManagement.model";
 })
 export class NavBarComponent{
     menuItems:any[] = [
-        {linkUrl: '/', linkText:'Home'},
         {linkUrl: '/products', linkText:'Products'},
         {linkUrl: '/welcome', linkText:'Welcome'}
     ]
