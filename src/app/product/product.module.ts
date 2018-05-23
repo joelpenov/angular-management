@@ -19,7 +19,6 @@ const productRoutes = [
     CommonModule,
     SharedModule,
     RouterModule.forChild(productRoutes),
-    FormsModule
   ],
   declarations: [
     ProductDetailComponent,

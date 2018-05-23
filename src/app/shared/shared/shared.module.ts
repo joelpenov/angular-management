@@ -24,7 +24,11 @@ import { RouterModule } from '@angular/router';
     RatingStartsComponent,
     WelcomeComponent,
     NotFoundComponent, 
-    NavBarComponent  
+    NavBarComponent,
+    BrowserModule,
+    RouterModule,
+    FormsModule
+    
   ]
 })
 export class SharedModule { }
