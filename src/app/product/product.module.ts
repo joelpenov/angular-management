@@ -6,12 +6,17 @@ import { SharedModule } from '../shared/shared/shared.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { ProductService } from '../services/products.service';
 import { ProductGuardServiceService } from '../services/product-guard.service.service';
-import { RouterModule } from '@angular/router';
+import { RouterModule,  Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { IProduct } from './models/product';
+import { ToastrService } from '../services/toastr.service';
 
-const productRoutes = [
+const productRoutes:Routes = [
   {path: 'products', component: ProductListComponent},
-  {path: 'products/:id', component: ProductDetailComponent, canActivate: [ProductGuardServiceService]}
+  {path: 'products/:id', component: ProductDetailComponent, 
+    canActivate: [ProductGuardServiceService], 
+    canDeactivate: ['canDeactivateProductDetail']
+  }
 ]
 
 @NgModule({
@@ -26,9 +31,17 @@ const productRoutes = [
   ], 
   providers:[
     ProductService,
-    ProductGuardServiceService
+    ProductGuardServiceService,
+    ToastrService,
+    {
+      provide:'canDeactivateProductDetail', useValue:checkDirtyState
+    }
   ]
 })
 export class ProductModule { 
 
+}
+
+export function checkDirtyState(currentProduct:ProductDetailComponent):boolean{
+  return currentProduct.hasMoreThanThreeStars();
 }
