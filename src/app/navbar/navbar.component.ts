@@ -3,7 +3,8 @@ import { SystemManagementConstants } from "../shared/systemManagement.model";
 
 @Component({
     selector: 'sm-navbar',
-    templateUrl:'./navbar.component.html'
+    templateUrl:'./navbar.component.html',
+    styleUrls:['./navbar.component.css']
 })
 export class NavBarComponent{
     menuItems:any[] = [
