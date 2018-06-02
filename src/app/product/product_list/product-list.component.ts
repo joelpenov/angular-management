@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { IProduct } from "../models/product";
 import { ProductService } from "../../services/products.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
     selector: 'sm-products',
@@ -10,7 +11,7 @@ import { ProductService } from "../../services/products.service";
 
 export class ProductListComponent implements OnInit{
   
-    constructor(private _productService:ProductService) {
+    constructor(private _activatedRoute:ActivatedRoute) {
           
     }
 
@@ -20,12 +21,10 @@ export class ProductListComponent implements OnInit{
     viewProducts:IProduct[]=this.products
     _filterBy:string;    
    
-    ngOnInit(): void {
-        this._productService.getAll()
-         .subscribe(products => {
-            this.products = products;
-            this.viewProducts = products;
-         });
+    ngOnInit(): void {        
+            let tempProducts = this._activatedRoute.snapshot.data["products"];
+            this.products = tempProducts;
+            this.viewProducts = tempProducts;
     }
 
     onNotify(message:string):void{

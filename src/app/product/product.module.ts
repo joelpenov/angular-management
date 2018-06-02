@@ -10,9 +10,10 @@ import { RouterModule,  Routes } from '@angular/router';
 import { FormsModule } from '@angular/forms';
 import { IProduct } from './models/product';
 import { ToastrService } from '../services/toastr.service';
+import { ProductResolver } from '../services/product.resolver.service';
 
 const productRoutes:Routes = [
-  {path: 'products', component: ProductListComponent},
+  {path: 'products', component: ProductListComponent, resolve: {products:  ProductResolver}},
   {path: 'products/:id', component: ProductDetailComponent, 
     canActivate: [ProductGuardServiceService], 
     canDeactivate: ['canDeactivateProductDetail']
@@ -35,7 +36,8 @@ const productRoutes:Routes = [
     ToastrService,
     {
       provide:'canDeactivateProductDetail', useValue:checkDirtyState
-    }
+    },
+    ProductResolver
   ]
 })
 export class ProductModule { 
