@@ -1,5 +1,4 @@
 ul > li >a.activeLink, .navbar-header> a.activeLink{
-    background: #858585;
-    color: white;
+    background: #e7e7e7;
     font-weight: bold;
 }

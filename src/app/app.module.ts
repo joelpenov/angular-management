@@ -11,13 +11,8 @@ import { NotFoundComponent } from './shared/error-codes/404.component';
 import { ProductModule } from './product/product.module';
 import { SharedModule } from './shared/shared/shared.module';
 import { RatingStartsComponent } from './shared/starts.component';
+import { routes } from './app.routes';
 
-const routes = [  
-  {path: 'welcome', component: WelcomeComponent},
-  {path: '', component: WelcomeComponent, pathMatch: 'full'},
-  {path: '**', component: NotFoundComponent}
-]
-  
 @NgModule({
   declarations: [
     AppComponent
