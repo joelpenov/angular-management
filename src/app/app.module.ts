@@ -12,6 +12,7 @@ import { ProductModule } from './product/product.module';
 import { SharedModule } from './shared/shared/shared.module';
 import { RatingStartsComponent } from './shared/starts.component';
 import { routes } from './app.routes';
+import { AuthenticateUserService } from './user/services/user.authentication.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,7 @@ import { routes } from './app.routes';
     ProductModule, 
     SharedModule
   ],
-  providers: [],
+  providers: [AuthenticateUserService],
   bootstrap: [
     AppComponent
   ]
