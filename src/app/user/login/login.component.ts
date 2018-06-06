@@ -18,5 +18,8 @@ export class LoginComponent implements OnInit {
     this._authenticationService.loginUser(formValues.userName, formValues.pasword);
     this._router.navigate(['/'])
   }
+  cancel(){
+    this._router.navigate(['/'])
+  }
 
 }

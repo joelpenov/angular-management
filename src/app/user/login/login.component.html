@@ -1,14 +1,53 @@
+
 <div class="row">
-  <div class="col-md-offset-5 col-md-3">
-      <form #loginForm="ngForm" (ngSubmit)="login(loginForm.value)" class="form-login">
-        <h4>Welcome back</h4>
-        <input type="text" id="userName" name="userName" (ngModel)="userName" class="form-control input-sm chat-input" placeholder="username" />
-        <input type="password" id="userPassword" name="userPassword" (ngModel)="userPassword" class="form-control input-sm chat-input" placeholder="password" />
-        <div class="wrapper">
-            <span class="group-btn">     
-                <button type="submit" class="btn btn-primary btn-md">Login <i class="fa fa-sign-in"></i></button>
-            </span>
+    <div class="col-md-4 col-md-offset-4">
+        <div class="panel panel-default">
+              <div class="panel-heading">
+                <h3 class="panel-title">Please sign in</h3>
+             </div>
+              <div class="panel-body">
+                <form accept-charset="UTF-8" role="form" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
+                <fieldset>
+                      <div class="form-group">
+                          <em *ngIf="loginForm.controls.userName?.invalid && !loginForm.controls.userName?.pristine">Required*</em>
+                          <input required class="form-control" name="userName" (ngModel)="userName"  type="text"/>
+                    </div>
+                    <div class="form-group">
+                        <em *ngIf="loginForm.controls.userPassword?.invalid && !loginForm.controls.userPassword?.pristine">Required*</em>
+                        <input required type="password" name="userPassword" (ngModel)="userPassword" class="form-control" />
+                    </div>                   
+                    <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary btn-block" type="submit" >Login</button>
+                    <button (click)="cancel()" class="btn btn-lg btn-default btn-block" type="button">Cancel</button>
+                </fieldset>
+                  </form>
+            </div>
         </div>
-      </form>  
-  </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-lg-4">
+        loginForm.valid {{loginForm?.valid}}<br/>
+        loginForm.invalid {{loginForm?.invalid}}<br/>
+        loginForm.dirty {{loginForm?.dirty}}<br/>
+        loginForm.pristine {{loginForm?.pristine}}<br/>
+        loginForm.submitted {{loginForm?.submitted}}<br/>
+        loginForm.untouched {{loginForm?.untouched}}<br/>    
+        loginForm.touched {{loginForm?.touched}}<br/>    
+    </div>
+    <div class="col-lg-4">
+        loginForm.controls.userName.valid {{loginForm.controls.userName?.valid}}<br/>
+        loginForm.controls.userName.invalid {{loginForm.controls.userName?.invalid}}<br/>
+        loginForm.controls.userName.dirty {{loginForm.controls.userName?.dirty}}<br/>
+        loginForm.controls.userName.pristine {{loginForm.controls.userName?.pristine}}<br/>
+        loginForm.controls.userName.touched {{loginForm.controls.userName?.touched}}<br/>
+        loginForm.controls.userName.untouched {{loginForm.controls.userName?.untouched}}<br/>
+    </div>
+    <div class="col-lg-4">
+        loginForm.controls.userPassword.valid {{loginForm.controls.userPassword?.valid}}<br/>
+        loginForm.controls.userPassword.invalid {{loginForm.controls.userPassword?.invalid}}<br/>
+        loginForm.controls.userPassword.dirty {{loginForm.controls.userPassword?.dirty}}<br/>
+        loginForm.controls.userPassword.pristine {{loginForm.controls.userPassword?.pristine}}<br/>
+        loginForm.controls.userPassword.touched {{loginForm.controls.userPassword?.touched}}<br/>
+        loginForm.controls.userPassword.untouched {{loginForm.controls.userPassword?.untouched}}<br/>
+    </div>
 </div>
