@@ -9,6 +9,7 @@ import { Router } from '@angular/router';
 })
 export class LoginComponent implements OnInit {
 
+  mouseIsOverLoginButton:boolean
   constructor(private _authenticationService:AuthenticateUserService,private _router:Router) { }
 
   ngOnInit() {
@@ -21,5 +22,5 @@ export class LoginComponent implements OnInit {
   cancel(){
     this._router.navigate(['/'])
   }
-
+   
 }

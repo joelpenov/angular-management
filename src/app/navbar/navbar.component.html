@@ -17,7 +17,7 @@
         </ul>    
         <ul class="nav navbar-nav navbar-right">
             <li  *ngIf="!authenticationService.isAuthenticated()"><a [routerLink]="['user/login']" [routerLinkActive]="['activeLink']">Login <span class="sr-only"></span></a></li>
-            <li *ngIf="authenticationService.isAuthenticated()"><a>Welcome {{authenticationService.currentUser.userName}} <span class="sr-only"></span></a></li>
+            <li *ngIf="authenticationService.isAuthenticated()"><a>Welcome {{authenticationService.currentUser?.firstName}} <span class="sr-only"></span></a></li>
             <li *ngIf="authenticationService.isAuthenticated()"><a [routerLink]="['user/profile']" [routerLinkActive]="['activeLink']">Profile <span class="sr-only"></span></a></li>            
         </ul>        
         </div>

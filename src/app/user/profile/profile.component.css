@@ -1,0 +1,21 @@
+
+.errorMessageContainer{
+    min-height: 20px;
+    min-width: 10px;
+    color:#E05C65;
+}
+
+.invalidField input{
+    background-color: #E3C3C5;    
+}
+
+.invalidField::-webkit-input-placeholder{
+    color:#999;
+}
+.invalidField::-moz-placeholder{
+    color:#999;
+}
+
+.invalidField:-ms-input-placeholder{
+    color:#999;
+}

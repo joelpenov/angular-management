@@ -9,14 +9,31 @@
                 <form accept-charset="UTF-8" role="form" #loginForm="ngForm" (ngSubmit)="login(loginForm.value)">
                 <fieldset>
                       <div class="form-group">
-                          <em *ngIf="loginForm.controls.userName?.invalid && !loginForm.controls.userName?.pristine">Required*</em>
+                                    <div class="errorMessage">
+                                            <em >
+                                                <span *ngIf="(loginForm.controls.userName?.invalid && 
+                                                loginForm.controls.userName?.touched) ||
+                                                 (mouseIsOverLoginButton && loginForm.controls.userName?.invalid)">
+                                                    Required*
+                                                </span> 
+                                            </em>
+                                    </div>
+                          
                           <input required class="form-control" name="userName" (ngModel)="userName"  type="text"/>
                     </div>
                     <div class="form-group">
-                        <em *ngIf="loginForm.controls.userPassword?.invalid && !loginForm.controls.userPassword?.pristine">Required*</em>
+                            <div class="errorMessage">
+                                    <em *ngIf="(loginForm.controls.userPassword?.invalid && 
+                                    loginForm.controls.userPassword?.touched) ||
+                                     (mouseIsOverLoginButton && loginForm.controls.userPassword?.invalid)">
+                                        Required*
+                                    </em>
+                            </div>                       
                         <input required type="password" name="userPassword" (ngModel)="userPassword" class="form-control" />
                     </div>                   
-                    <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary btn-block" type="submit" >Login</button>
+                    <div (mouseenter)="mouseIsOverLoginButton=true" (mouseleave)="mouseIsOverLoginButton=false">
+                        <button [disabled]="loginForm.invalid" class="btn btn-lg btn-primary btn-block" type="submit" >Login</button>
+                    </div>
                     <button (click)="cancel()" class="btn btn-lg btn-default btn-block" type="button">Cancel</button>
                 </fieldset>
                   </form>

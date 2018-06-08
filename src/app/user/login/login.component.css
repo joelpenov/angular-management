@@ -1,3 +1,7 @@
 em{
     color:red;
 }
+
+.form-group > div.errorMessage{
+    min-height: 20px;
+}
